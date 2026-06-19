@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Profesional — Andi Muh Khaidir Resqullah Langgara</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg: #0D0D0F; 
+            --bg2: #141416; 
+            --bg3: #1A1A1D;
+            --border: rgba(255,255,255,0.08); 
+            --border-hover: rgba(255,255,255,0.16);
+            --text: #F0EDE8; 
+            --text-muted: #9A9794; 
+            --text-dim: #6A6866;
+            --accent: #C9A96E; 
+            --accent-dim: rgba(201,169,110,0.12);
+            --serif: 'Playfair Display', Georgia, serif; 
+            --sans: 'Inter', system-ui, sans-serif;
+            --radius: 8px; 
+            --radius-lg: 12px;
+        }
+        html { scroll-behavior: smooth; }
+        body { 
+            background: var(--bg); 
+            color: var(--text); 
+            font-family: var(--sans); 
+            font-size: 15px; 
+            line-height: 1.7; 
+            -webkit-font-smoothing: antialiased; 
+        }
+
+        /* NAVBAR */
+        nav { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            z-index: 100; 
+            background: rgba(13,13,15,0.92); 
+            backdrop-filter: blur(16px); 
+            border-bottom: .5px solid var(--border); 
+        }
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; }
+        .nav-logo a { color: var(--text); text-decoration: none; }
+        .nav-logo span { color: var(--accent); }
+        .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+        .nav-links { list-style: none; display: flex; gap: 1.2rem; flex-wrap: wrap; }
+        .nav-links a { 
+            font-size: .75rem; 
+            letter-spacing: .08em; 
+            text-transform: uppercase; 
+            color: var(--text-muted); 
+            text-decoration: none; 
+            transition: color .2s; 
+            font-weight: 500; 
+        }
+        .nav-links a:hover { color: var(--text); }
+
+        .lang-switch {
+            background: var(--bg3);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 0.4rem 0.8rem;
+            border-radius: var(--radius);
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .lang-switch:hover { background: var(--accent); color: var(--bg); }
+
+        /* HERO SECTION */
+        #hero { 
+            min-height: 100vh; 
+            padding: 8rem 2rem 5rem; 
+            position: relative;
+            display: flex; 
+            align-items: center;
+            overflow: hidden;
+        }
+        .hero-container {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            align-items: center;
+            gap: 2rem;
+        }
+        .hero-content { max-width: 650px; }
+        
+        .hero-bg-photo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 45%;
+            height: 100%;
+            z-index: 1;
+            background-image: url('Poto Profil.jpeg'), url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800&h=1000');
+            background-size: cover;
+            background-position: center top;
+            opacity: 0.4;
+            mask-image: linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+        }
+        
+        .hero-eyebrow { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; font-weight: 600; }
+        .hero-title { font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 700; line-height: 1.1; color: var(--text); margin-bottom: 1.8rem; letter-spacing: -0.02em; }
+        .hero-title em { font-style: italic; color: var(--accent); font-weight: 400; }
+        .hero-subtitle { font-size: 0.95rem; color: var(--text-muted); font-weight: 300; text-align: justify; line-height: 1.6; }
+
+        /* SECTIONS BASICS */
+        section { padding: 6rem 2rem; border-bottom: 0.5px solid var(--border); }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .section-label { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; font-weight: 600; }
+        .section-title { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; color: var(--text); margin-bottom: 2.5rem; }
+
+        /* ABOUT SECTION */
+        #about { background: var(--bg2); }
+        .about-text { color: var(--text-muted); text-align: justify; max-width: 850px; margin: 0 auto; }
+        .about-text p { margin-bottom: 1.2rem; }
+
+        /* EXPERIENCE CARDS */
+        .experience-card { background: var(--bg3); border: .5px solid var(--border); border-radius: var(--radius-lg); padding: 2.2rem; margin-bottom: 2rem; }
+        .exp-header { margin-bottom: 1.5rem; border-bottom: 0.5px solid rgba(255,255,255,0.05); padding-bottom: 1rem; display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+        .exp-period { font-size: .8rem; color: var(--accent); margin-bottom: .3rem; font-weight: 600; }
+        .exp-title { font-size: 1.25rem; font-weight: 700; color: var(--text); }
+        .exp-org { font-size: .95rem; color: var(--text-muted); margin-top: .2rem; font-weight: 500; }
+        .exp-tag { padding: .25rem .6rem; background: rgba(201,169,110,0.1); color: var(--accent); border: 0.5px solid rgba(201,169,110,0.2); border-radius: 4px; font-size: .65rem; text-transform: uppercase; font-weight: 600; }
+        
+        .exp-body-grid { display: grid; grid-template-columns: 1.4fr 1.2fr; gap: 2rem; align-items: start; }
+        .exp-desc { font-size: .95rem; color: var(--text-muted); }
+        .exp-desc p { margin-bottom: 0.8rem; color: var(--text); }
+        .exp-desc ul { padding-left: 1.2rem; list-style-type: square; }
+        .exp-desc ul li { margin-bottom: 0.6rem; text-align: justify; }
+        .exp-desc ul li strong { color: var(--text); }
+        
+        blockquote { margin: 1rem 0; padding-left: 1rem; border-left: 3px solid var(--accent); color: var(--text); font-style: italic; font-size: 0.9rem; background: rgba(255,255,255,0.02); padding: 0.8rem; border-radius: 0 4px 4px 0; text-align: justify; }
+
+        /* CAROUSEL SWIPE SYSTEM */
+        .carousel-wrapper { position: relative; width: 100%; overflow: hidden; border-radius: var(--radius); border: .5px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+        .carousel-container { 
+            display: flex; 
+            overflow-x: auto; 
+            scroll-snap-type: x mandatory; 
+            scroll-behavior: smooth; 
+            -webkit-overflow-scrolling: touch; 
+            cursor: grab;
+        }
+        .carousel-container:active { cursor: grabbing; }
+        .carousel-container::-webkit-scrollbar { height: 5px; }
+        .carousel-container::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+        .carousel-container::-webkit-scrollbar-thumb { background: rgba(201,169,110,0.4); border-radius: 3px; }
+        .carousel-slide { flex: 0 0 100%; scroll-snap-align: start; aspect-ratio: 16/11; position: relative; user-select: none; -webkit-user-drag: none; }
+        .carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+        .carousel-hint { position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: var(--accent); font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; pointer-events: none; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        .cert-slide { flex: 0 0 calc(33.333% - 10px); scroll-snap-align: start; aspect-ratio: 4/3; min-width: 260px; }
+
+        /* SKILLS GRID */
+        .skills-grid { display: grid; grid-template-columns: 1fr; max-width: 600px; margin: 1.5rem auto 0; }
+        .skills-card { background: var(--bg3); border: .5px solid var(--border); border-radius: var(--radius-lg); padding: 1.8rem; }
+        .skills-card h3 { font-size: 1.05rem; color: var(--accent); margin-bottom: 1.2rem; text-transform: uppercase; font-weight: 700; border-bottom: 1px solid rgba(201,169,110,0.2); padding-bottom: 0.5rem; text-align: center; }
+        .skills-list { list-style: none; }
+        .skills-list li { color: var(--text-muted); margin-bottom: 0.8rem; font-size: 0.9rem; position: relative; padding-left: 1.2rem; text-align: justify; }
+        .skills-list li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+        .skills-list li strong { color: var(--text); display: block; margin-bottom: 0.1rem; }
+
+        /* TINTS */
+        #pengalaman-kerja { background: var(--bg); }
+        #project-riset { background: var(--bg2); }
+        #kompetisi { background: var(--bg); }
+        #skills { background: var(--bg2); }
+        #sertifikat { background: var(--bg); }
+        #pengabdian-masyarakat { background: var(--bg2); }
+        #organisasi-kepemimpinan { background: var(--bg); }
+
+        /* FOOTER */
+        footer { padding: 2.5rem 2rem; border-top: .5px solid var(--border); font-size: .8rem; color: var(--text-dim); background: #09090B; }
+        .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+
+        @media(max-width: 768px){
+            .nav-container { flex-direction: column; gap: 1rem; padding: 1rem; }
+            .nav-right { flex-direction: column; gap: 0.8rem; }
+            .nav-links { justify-content: center; gap: 0.8rem; }
+            .hero-container { grid-template-columns: 1fr; }
+            .hero-bg-photo { width: 100%; height: 50%; top: auto; bottom: 0; mask-image: linear-gradient(to top, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0) 100%); opacity: 0.25; }
+            section { padding: 4rem 1.2rem; }
+            .exp-body-grid, .skills-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .exp-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+            .cert-slide { flex: 0 0 100%; }
+            .footer-container { flex-direction: column; text-align: center; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo"><a href="#hero">Khaidir<span>.</span></a></div>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="#about" data-id="nav-about">Tentang</a></li>
+                    <li><a href="#pengalaman-kerja" data-id="nav-work">Kerja</a></li>
+                    <li><a href="#project-riset" data-id="nav-projects">Proyek</a></li>
+                    <li><a href="#kompetisi" data-id="nav-awards">Prestasi</a></li>
+                    <li><a href="#skills" data-id="nav-skills">Skill</a></li>
+                    <li><a href="#sertifikat" data-id="nav-cert">Sertifikat</a></li>
+                    <li><a href="#pengabdian-masyarakat" data-id="nav-comm">Pengabdian</a></li>
+                    <li><a href="#organisasi-kepemimpinan" data-id="nav-org">Organisasi</a></li>
+                </ul>
+                <button class="lang-switch" onclick="toggleLanguage()">EN / ID</button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-bg-photo"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-eyebrow" data-id="hero-uni">Teknik Industri — Universitas Islam Indonesia</div>
+                <h1 class="hero-title">
+                    Andi Muh<br>
+                    <em>Khaidir R. L.</em>
+                </h1>
+                <p class="hero-subtitle" data-id="hero-desc">
+                    Lulusan Teknik Industri UII dengan fokus pada pengembangan produk, analisis data, dan project management. Tugas akhir saya menggunakan Topic Modeling dan Kano Model untuk menganalisis kebutuhan konsumen kendaraan listrik di Indonesia berdasarkan perbedaan preferensi antar generasi. Saya memiliki pengalaman dalam pengelolaan proyek, analisis data, dan kolaborasi tim dalam berbagai kegiatan akademik dan organisasi.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <p class="section-label" data-id="lbl-profile">Profil</p>
+            <h2 class="section-title" data-id="title-about" style="text-align: center; margin-bottom: 2rem;">Tentang Saya</h2>
+            <div class="about-text">
+                <p data-id="about-p1">Lulusan Teknik Industri UII dengan fokus pada pengembangan produk, analisis data, dan project management. Tugas akhir saya menggunakan Topic Modeling dan Kano Model untuk menganalisis kebutuhan konsumen kendaraan listrik di Indonesia berdasarkan perbedaan preferensi antar generasi. Saya memiliki pengalaman dalam pengelolaan proyek, analisis data, dan kolaborasi tim dalam berbagai kegiatan akademik dan organisasi.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pengalaman-kerja">
+        <div class="container">
+            <p class="section-label" data-id="lbl-career">Karir</p>
+            <h2 class="section-title" data-id="title-work">Pengalaman Kerja</h2>
+            
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div class="exp-header-left">
+                        <div class="exp-period">Oktober 2025</div>
+                        <h3 class="exp-title" data-id="work-title">Magang Inventory Control
+                        <div class="exp-org">PT Indonesia Plafon Semesta</div>
+                    </div>
+                    <span class="exp-tag" data-id="tag-intern">Magang</span>
+                </div>
+                <div class="exp-body-grid">
+                    <div class="exp-desc">
+                        <ul>
+                            <li data-id="work-li1">Membantu pencatatan data persediaan bahan baku.</li>
+                            <li data-id="work-li2"><strong>Tugas khusus:</strong> Pemilihan supplier menggunakan metode Analytical Hierarchy Process (AHP).</li>
+                        </ul>
+                    </div>
+                    <div class="carousel-wrapper">
+                        <div class="carousel-container">
+                            <div class="carousel-slide"><img src="Mag1.jpeg" alt="Magang 1" onerror="this.src='https://picsum.photos/800/550?random=11'"><span class="carousel-hint">Swipe &rarr;</span></div>
+                            <div class="carousel-slide"><img src="Mag2.jpeg" alt="Magang 2" onerror="this.src='https://picsum.photos/800/550?random=12'"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="project-riset">
+        <div class="container">
+            <p class="section-label" data-id="lbl-innovation">Inovasi</p>
+            <h2 class="section-title" data-id="title-projects">Proyek &amp; Riset</h2>
+            
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div class="exp-header-left">
+                        <div class="exp-period">2024 &ndash; 2025</div>
+                        <h3 class="exp-title" style="font-size: 1.15rem; line-height: 1.4;">Multipin Ointment: An Innovative Wound Healing Ointment with Kalanchoe Pinnata and Jatropha Multifida Extracts, Enhanced with Jasmine Aroma, Utilizing a Grassroots Campaign Strategy</h3>
+                        <div class="exp-org" data-id="proj-org">Pendanaan Riset PKM-K Kemendikbudristek &mdash; Ditjen Dikti RI</div>
+                    </div>
+                    <span class="exp-tag" data-id="tag-national">Nasional</span>
+                </div>
+                <div class="exp-body-grid">
+                    <div class="exp-desc">
+                        <ul>
+                            <li data-id="proj-li1"><strong>Riset Pasar (Market Research):</strong> Melakukan riset pasar sebagai dasar pengembangan program kewirausahaan produk untuk kebutuhan komersialisasi dan hilirisasi produk di pasar.</li>
+                            <li data-id="proj-li2"><strong>Analisis Ekonomi:</strong> Menyusun Rencana Anggaran Biaya (RAB) dan analisis kelayakan ekonomi sederhana untuk keberlanjutan proyek produk.</li>
+                            <li data-id="proj-li3"><strong>Manajemen Penjadwalan:</strong> Menyusun project schedule secara terstructured untuk perencanaan, monitoring, serta pelaksanaan timeline seluruh kegiatan proyek.</li>
+                        </ul>
+                    </div>
+                    <div class="carousel-wrapper">
+                        <div class="carousel-container">
+                            <div class="carousel-slide"><img src="Multi1.jpeg" alt="Multipin 1" onerror="this.src='https://picsum.photos/800/550?random=15'"><span class="carousel-hint">Swipe &rarr;</span></div>
+                            <div class="carousel-slide"><img src="Multi2.jpeg" alt="Multipin 2" onerror="this.src='https://picsum.photos/800/550?random=16'"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kompetisi">
+        <div class="container">
+            <p class="section-label" data-id="lbl-awards">Prestasi</p>
+            <h2 class="section-title" data-id="title-awards">Kompetisi &amp; Penghargaan</h2>
+            
+            <!-- COMPETITION 1 -->
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div class="exp-header-left">
+                        <div class="exp-period">2026</div>
+                        <h3 class="exp-title" data-id="comp-1">Juara 3 &mdash; International Project Management Challenge (PMC)</h3>
+                        <div class="exp-org" data-id="comp-org-1">Project Management Institute (PMI) Indonesia Chapter</div>
+                    </div>
+                    <span class="exp-tag" data-id="tag-intl">Internasional</span>
+                </div>
+                <div class="exp-body-grid">
+                    <div class="exp-desc">
+                        <div data-id="comp-1-desc">
+                            <p><strong>Mini Project Master Plan (MPMP)</strong></p>
+                            <p style="margin-top: 0.5rem; color: var(--accent);">• Seleksi &amp; Semifinal:</p>
+                            <p style="font-style: italic; padding-left: 0.5rem;">CitaWater: IoT-Based River Water Quality Monitoring System with Early Warning and Website Integration for Optimizing Citarum River Supervision</p>
+                            <p style="margin-top: 0.5rem; color: var(--accent);">• Final:</p>
+                            <p style="font-style: italic; padding-left: 0.5rem;">AgriGuard: Solar-Powered IoT Pest for Local Repellent System Farmers around KBA Cidadap</p>
+                        </div>
+                    </div>
+                    <div class="carousel-wrapper">
+                        <div class="carousel-container">
+                            <div class="carousel-slide"><img src="PMC1.jpeg" alt="PMC 1" onerror="this.src='https://picsum.photos/800/550?random=60'"><span class="carousel-hint">Swipe &rarr;</span></div>
+                            <div class="carousel-slide"><img src="PMC2.jpeg" alt="PMC 2" onerror="this.src='https://picsum.photos/800/550?random=61'"></div>
+                            <div class="carousel-slide"><img src="PMC3.jpeg" alt="PMC 3" onerror="this.src='https://picsum.photos/800/550?random=65'"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMPETITION 2 -->
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div class="exp-header-left">
+                        <div class="exp-period">2025</div>
+                        <h3 class="exp-title" data-id="comp-2">Juara 3 &mdash; Lomba Teknologi &amp; Inovasi (LEVITASI)</h3>
+                        <div class="exp-org" data-id="comp-org-2">Fakultas Teknologi Industri, Universitas Islam Indonesia</div>
+                    </div>
+                    <span class="exp-tag" data-id="tag-univ">Universitas</span>
+                </div>
+                <div class="exp-body-grid">
+                    <div class="exp-desc">
+                        <p data-id="comp-2-desc">Ajang kompetisi inovasi rekayasa teknologi dalam melahirkan solusi aplikatif, efektif, dan siap guna demi menjawab tantangan industri masa depan.</p>
+                    </div>
+                    <div class="carousel-wrapper">
+                        <div class="carousel-container">
+                            <div class="carousel-slide"><img src="Levitasi1.jpeg" alt="Levitasi UII" onerror="this.src='https://picsum.photos/800/550?random=62'"><span class="carousel-hint">Swipe &rarr;</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMPETITION 3 -->
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div class="exp-header-left">
+                        <div class="exp-period">2025</div>
+                        <h3 class="exp-title" data-id="comp-3">Juara Harapan 3 &mdash; Excellent PPK Ormawa Idea Competition (EPIC)</h3>
+                        <div class="exp-org" data-id="comp-org-3">Universitas Islam Indonesia</div>
+                    </div>
+                    <span class="exp-tag" data-id="tag-univ2">Universitas</span>
+                </div>
+                <div class="exp-body-grid">
+                    <div class="exp-desc">
+                        <p data-id="comp-3-desc">Kompetisi konseptualisasi dan perancangan ide pengabdian masyarakat terbaik dalam memajukan potensi desa secara berkelanjutan.</p>
+                    </div>
+                    <div class="carousel-wrapper">
+                        <div class="carousel-container">
+                            <div class="carousel-slide"><img src="Epic1.jpeg" alt="EPIC Competition" onerror="this.src='https://picsum.photos/800/550?random=63'"><span class="carousel-hint">Swipe &rarr;</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <p class="section-label" data-id="lbl-skills">Kompetensi</p>
+            <h2 class="section-title" data-id="title-skills">Keahlian &amp; Tools</h2>
+            
+            <div class="skills-grid">
+                <div class="skills-card">
+                    <h3 data-id="sk-c1">Tools &amp; Software</h3>
+                    <ul class="skills-list">
+                        <li data-id="sk-li1"><strong>Microsoft Word:</strong> Pembuatan dokumen resmi, surat, proposal, dan laporan.</li>
+                        <li data-id="sk-li2"><strong>Microsoft Project:</strong> Penyusunan jadwal kegiatan dan visualisasi timeline (Gantt Chart).</li>
+                        <li data-id="sk-li3"><strong>Excel:</strong> Pengolahan data, penggunaan rumus dasar, serta rekap laporan.</li>
+                        <li data-id="sk-li4"><strong>Power BI:</strong> Pengolahan dan visualisasi data sederhana untuk kebutuhan laporan.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sertifikat">
+        <div class="container">
+            <p class="section-label" data-id="lbl-gallery">Berkas Resmi</p>
+            <h2 class="section-title" data-id="title-cert">Sertifikat</h2>
+            <div class="carousel-wrapper">
+                <div class="carousel-container">
+                    <div class="carousel-slide cert-slide"><img src="Serti0.jpg" onerror="this.src='https://picsum.photos/600/450?random=0'"><span class="carousel-hint">Swipe &rarr;</span></div>
+                    <div class="carousel-slide cert-slide"><img src="Serti1.jpg" onerror="this.src='https://picsum.photos/600/450?random=1'"></div>
+                    <div class="carousel-slide cert-slide"><img src="Serti2.jpg" onerror="this.src='https://picsum.photos/600/450?random=2'"></div>
+                    <div class="carousel-slide cert-slide"><img src="Serti3.jpg" onerror="this.src='https://picsum.photos/600/450?random=3'"></div>
+                    <div class="carousel-slide cert-slide"><img src="Serti4.jpg" onerror="this.src='https://picsum.photos/600/450?random=4'"></div>
+                    <div class="carousel-slide cert-slide"><img src="Serti5.jpg" onerror="this.src='https://picsum.photos/600/450?random=5'"></div>
+                    <div class="carousel-slide cert-slide"><img src="Serti6.jpg" onerror="this.src='https://picsum.photos/600/450?random=6'"></div>
+                    <div class="carousel-slide cert-slide"><img src="Serti7.jpg" onerror="this.src='https://picsum.photos/600/450?random=7'"></div>
+                    <div class="carousel-slide cert-slide"><img src="Serti8.jpg" onerror="this.src='https://picsum.photos/600/450?random=8'"></div>
+                    <div class="carousel-slide cert-slide"><img src="Serti9.jpg" onerror="this.src='https://picsum.photos/600/450?random=9'"></div>
+                    <div class="carousel-slide cert-slide"><img src="Serti10.jpg" onerror="this.src='https://picsum.photos/600/450?random=10'"></div>
+                    <div class="carousel-slide cert-slide"><img src="Serti11.jpg" onerror="this.src='https://picsum.photos/600/450?random=11'"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pengabdian-masyarakat">
+        <div class="container">
+            <p class="section-label" data-id="lbl-cont">Kontribusi</p>
+            <h2 class="section-title" data-id="title-comm">Pengabdian Masyarakat</h2>
+            
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div class="exp-header-left">
+                        <div class="exp-period">2024</div>
+                        <h3 class="exp-title" data-id="comm-b-title">Pengabdian Masyarakat Sinera UII</h3>
+                        <div class="exp-org" data-id="comm-b-org">Desa Kumbewaha, Kecamatan Siotapina, Kabupaten Buton, Sulawesi Tenggara</div>
+                    </div>
+                    <span class="exp-tag" data-id="tag-dev">Pengabdian</span>
+                </div>
+                <div class="exp-body-grid">
+                    <div class="exp-desc">
+                        <p data-id="comm-b-theme"><strong>Tema:</strong> "Optimalisasi Produk Berbasis Kelapa untuk Pemberdayaan Ekonomi Masyarakat Kumbewaha". Program berfokus pada peningkatan potensi ekonomi lokal melalui produk turunan kelapa.</p>
+                        <ul>
+                            <li data-id="comm-b-li1">Sebelum pelaksanaan, berkontribusi pada Divisi Sponsorship dalam kegiatan penggalangan dana dan kolaborasi kemitraan.</li>
+                            <li data-id="comm-b-li2">Memfasilitasi program Sekolah UMKM untuk mempromosikan usaha lokal berbasis kelapa.</li>
+                            <li data-id="comm-b-li3">Mendukung kegiatan keagamaan dan budaya, termasuk pengajaran TPQ, Maulid Nabi, Harmoni 17 Agustus, dan Festival Adat Kadie Kumbewaha.</li>
+                            <li data-id="comm-b-li4"><strong>Proker Individu:</strong> Memperkenalkan produksi briket dan alat cetakan sederhana kepada masyarakat lokal.</li>
+                            <li data-id="comm-b-li5">Berpartisipasi dalam program tim lainnya seperti Pengenalan Teknologi dan Sekolah SDGs untuk siswa SMP dan SMA.</li>
+                        </ul>
+                    </div>
+                    <div class="carousel-wrapper">
+                        <div class="carousel-container">
+                            <div class="carousel-slide"><img src="Kum1.jpeg" alt="KKN 1" onerror="this.src='https://picsum.photos/800/550?random=41'"><span class="carousel-hint">Swipe &rarr;</span></div>
+                            <div class="carousel-slide"><img src="Kum2.jpeg" alt="KKN 2" onerror="this.src='https://picsum.photos/800/550?random=42'"></div>
+                            <div class="carousel-slide"><img src="Kum3.jpeg" alt="KKN 3" onerror="this.src='https://picsum.photos/800/550?random=43'"></div>
+                            <div class="carousel-slide"><img src="Kum4.jpeg" alt="KKN 4" onerror="this.src='https://picsum.photos/800/550?random=44'"></div>
+                            <div class="carousel-slide"><img src="Kum5.jpeg" alt="KKN 5" onerror="this.src='https://picsum.photos/800/550?random=45'"></div>
+                            <div class="carousel-slide"><img src="Kum6.jpeg" alt="KKN 6" onerror="this.src='https://picsum.photos/800/550?random=46'"></div>
+                            <div class="carousel-slide"><img src="Kum7.jpeg" alt="KKN 7" onerror="this.src='https://picsum.photos/800/550?random=47'"></div>
+                            <div class="carousel-slide"><img src="Kum8.jpeg" alt="KKN 8" onerror="this.src='https://picsum.photos/800/550?random=48'"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div class="exp-header-left">
+                        <div class="exp-period">2022 &ndash; 2024</div>
+                        <h3 class="exp-title" data-id="comm-u-title">Pengajar TPA Al-Fath UII Ayo Mengajar (UAM)</h3>
+                        <div class="exp-org">Universitas Islam Indonesia</div>
+                    </div>
+                    <span class="exp-tag" data-id="tag-teacher">Pengajar</span>
+                </div>
+                <div class="exp-body-grid">
+                    <div class="exp-desc">
+                        <ul>
+                            <li data-id="comm-u-li1">Mengajar di TPA yang berlokasi di masjid sekitar lingkungan kampus Universitas Islam Indonesia (UII).</li>
+                        </ul>
+                    </div>
+                    <div class="carousel-wrapper">
+                        <div class="carousel-container">
+                            <div class="carousel-slide"><img src="UAM1.jpeg" alt="TPA" onerror="this.src='https://picsum.photos/800/550?random=31'"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="organisasi-kepemimpinan">
+        <div class="container">
+            <p class="section-label" data-id="lbl-org">Kepemimpinan</p>
+            <h2 class="section-title" data-id="title-org">Organisasi &amp; Kepemimpinan</h2>
+
+            <!-- TEDx -->
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div class="exp-header-left">
+                        <div class="exp-period">2025 &ndash; 2026</div>
+                        <h3 class="exp-title" data-id="org-t-title">Licensee &amp; Main Organizer</h3>
+                        <div class="exp-org">TEDxUII &mdash; Universitas Islam Indonesia</div>
+                    </div>
+                    <span class="exp-tag">TEDx</span>
+                </div>
+                <div class="exp-body-grid">
+                    <div class="exp-desc">
+                        <ul>
+                            <li data-id="org-t-li1">Mengelola lisensi TEDx dan berperan dalam penyelenggaraan konferensi ide independen di lingkungan universitas.</li>
+                            <li data-id="org-t-li2">Memimpin, menyusun struktur kepanitiaan, dan mengoordinasikan operasional tim yang terdiri dari 58 staf lintas divisi.</li>
+                        </ul>
+<!-- TAMBAHAN LINK INSTAGRAM DI SINI -->
+            <p style="margin-top: 1rem; font-size: 0.85rem;">
+                Instagram: <a href="https://instagram.com/tedxuii" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 600;">@tedxuii</a>
+            </p>
+        </div>
+        <div class="carousel-wrapper">
+            <div class="carousel-container">
+                <div class="carousel-slide"><img src="Tedx1.jpeg" alt="TEDx" onerror="this.src='https://picsum.photos/800/550?random=2'"><span class="carousel-hint">Swipe &rarr;</span></div>
+                <div class="carousel-slide"><img src="Tedx2.jpeg" alt="TEDx 2" onerror="this.src='https://picsum.photos/800/550?random=22'"></div>
+                <div class="carousel-slide"><img src="Tedx3.jpeg" alt="TEDx 3" onerror="this.src='https://picsum.photos/800/550?random=23'"></div>
+                <div class="carousel-slide"><img src="Tedx11.jpeg" alt="TEDx 4" onerror="this.src='https://picsum.photos/800/550?random=24'"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- PENGADER -->
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div class="exp-header-left">
+                        <div class="exp-period">2024 &ndash; 2026</div>
+                        <h3 class="exp-title" data-id="org-p-title">Instruktur / Pengader Regional</h3>
+                        <div class="exp-org" data-id="org-p-org">Korps Pengader HMI Cabang Yogyakarta</div>
+                    </div>
+                    <span class="exp-tag" data-id="tag-inst">Instruktur</span>
+                </div>
+                <div class="exp-body-grid">
+                    <div class="exp-desc">
+                        <ul>
+                            <li data-id="org-p-li1"><strong>Basic Training (LK I):</strong> Menjadi Instruktur Basic Training sebanyak 9 kali dengan rata-rata &plusmn;30 peserta per angkatan.</li>
+                            <li data-id="org-p-li2"><strong>Intermediate Training (LK II):</strong> Menjadi Instruktur Intermediate Training sebanyak 2 kali dengan rata-rata &plusmn;30 peserta.</li>
+                            <li data-id="org-p-li3"><strong>Konsep &amp; Seleksi:</strong> Merumuskan konsep kegiatan serta mengelola proses seleksi calon peserta Intermediate Training.</li>
+                            <li data-id="org-p-li4"><strong>Penyusunan ToR:</strong> Menyusun Terms of Reference (ToR) sebagai panduan substansi materi Intermediate Training.</li>
+                        </ul>
+                    </div>
+                    <div class="carousel-wrapper">
+                        <div class="carousel-container">
+                            <div class="carousel-slide"><img src="Instruktur00.jpeg" alt="Instruktur" onerror="this.src='https://picsum.photos/800/550?random=12'"><span class="carousel-hint">Swipe &rarr;</span></div>
+                            <div class="carousel-slide"><img src="Instruktur0.jpeg" alt="Instruktur 2" onerror="this.src='https://picsum.photos/800/550?random=33'"></div>
+                            <div class="carousel-slide"><img src="Instruktur1.jpeg" alt="Instruktur 3" onerror="this.src='https://picsum.photos/800/550?random=34'"></div>
+                            <div class="carousel-slide"><img src="Instruktur2.jpeg" alt="Instruktur 4" onerror="this.src='https://picsum.photos/800/550?random=39'"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HMI CABANG -->
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div class="exp-header-left">
+                        <div class="exp-period">2025 &ndash; 2026</div>
+                        <h3 class="exp-title" data-id="org-h-title">HMI Cabang Yogyakarta</h3>
+                        <div class="exp-org" data-id="org-h-dept">Bidang Pembinaan Aparatur Organisasi</div>
+                    </div>
+                    <span class="exp-tag" data-id="tag-cabang">Branch</span>
+                </div>
+                <div class="exp-body-grid">
+                    <div class="exp-desc">
+                        <ul>
+                            <li data-id="org-h-li1">Melakukan Analisis kesehatan 24 komisariat lingkup HMI Cabang Yogyakarta.</li>
+                            <li>
+                                <blockquote data-id="org-h-quote">
+                                    "ANALISIS DISFUNGSI SISTEM ORGANISASI MENGGUNAKAN PENDEKATAN SOFT SYSTEMS METHODOLOGY (STUDI KASUS: HMI CABANG YOGYAKARTA)"
+                                </blockquote>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="carousel-wrapper">
+                        <div class="carousel-container">
+                            <div class="carousel-slide"><img src="PAO1.jpeg" alt="PAO HMI Cabang" onerror="this.src='https://picsum.photos/800/550?random=52'"><span class="carousel-hint">Swipe &rarr;</span></div>
+                            <div class="carousel-slide"><img src="PAO2.jpeg" alt="PAO HMI Cabang 2" onerror="this.src='https://picsum.photos/800/550?random=53'"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WASEKUM IKAMI -->
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div class="exp-header-left">
+                        <div class="exp-period">2025 &ndash; Sekarang</div>
+                        <h3 class="exp-title" data-id="org-i-title">Wakil Sekretaris Umum </h3>
+                        <div class="exp-org" data-id="org-i-org">IKAMI Sulawesi Selatan Cabang DIY</div>
+                    </div>
+                    <span class="exp-tag" data-id="tag-sec">Sekretaris</span>
+                </div>
+                <div class="exp-body-grid">
+                    <div class="exp-desc">
+                        <ul>
+                            <li data-id="org-i-li1">Memimpin sistem sirkulasi surat-menyurat organisasi dengan merancang, memvalidasi, dan berhasil menerbitkan <strong>lebih dari 50 surat resmi organisasi</strong>.</li>
+                            <li data-id="org-i-li2">Melakukan koordinasi dengan tiap sekretaris Panitia Event-event organisasi.</li>
+                        </ul>
+                    </div>
+                    <div class="carousel-wrapper">
+                        <div class="carousel-container">
+                            <div class="carousel-slide"><img src="sekum1.jpeg" alt="IKAMI" onerror="this.src='https://picsum.photos/800/550?random=13'"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KETUA UMUM HMI FTI -->
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div class="exp-header-left">
+                        <div class="exp-period">2024 &ndash; 2025</div>
+                        <h3 class="exp-title" data-id="org-f-title">Ketua Umum Komisariat</h3>
+                        <div class="exp-org" data-id="org-f-org">Himpunan Mahasiswa Islam (HMI) Komisariat FTI UII Yogyakarta</div>
+                    </div>
+                    <span class="exp-tag">HMI FTI</span>
+                </div>
+                <div class="exp-body-grid">
+                    <div class="exp-desc">
+                        <ul data-id="org-f-desc">
+                            <li>Memimpin strategi organisasi, pengembangan kader, dan koordinasi pemangku kepentingan untuk mewujudkan visi dan misi HMI di tingkat komisariat.</li>
+                            <li>Mengawasi 199 anggota dan berhasil mencapai peningkatan hampir lima kali lipat dalam keanggotaan baru dibandingkan tahun sebelumnya.</li>
+                            <li>Memperluas jaringan dengan Dewan Perwakilan Mahasiswa (DPM) UII serta lembaga riset untuk memperkuat pengaruh strategis.</li>
+                        </ul>
+                    </div>
+                    <div class="carousel-wrapper">
+                        <div class="carousel-container">
+                            <div class="carousel-slide"><img src="Tum0.jpeg" alt="HMI FTI" onerror="this.src='https://picsum.photos/800/550?random=10'"><span class="carousel-hint">Swipe &rarr;</span></div>
+                            <div class="carousel-slide"><img src="Tum1.jpeg" alt="HMI FTI 2" onerror="this.src='https://picsum.photos/800/550?random=35'"></div>
+                            <div class="carousel-slide"><img src="Tum2.jpeg" alt="HMI FTI 3" onerror="this.src='https://picsum.photos/800/550?random=36'"></div>
+                            <div class="carousel-slide"><img src="Tum3.jpeg" alt="HMI FTI 4" onerror="this.src='https://picsum.photos/800/550?random=37'"></div>
+                            <div class="carousel-slide"><img src="Tum4.JPG" alt="HMI FTI 5" onerror="this.src='https://picsum.photos/800/550?random=38'"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HIPMI -->
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div class="exp-header-left">
+                        <div class="exp-period">November 2023 &ndash; Juli 2024</div>
+                        <h3 class="exp-title" data-id="org-hip-title">HIPMI PT UII</h3>
+                        <div class="exp-org" data-id="org-hip-dept">Wakil Kepala Divisi Pelatihan, Pengembangan, dan Kajian Strategis</div>
+                    </div>
+                    <span class="exp-tag">HIPMI</span>
+                </div>
+                <div class="exp-body-grid">
+                    <div class="exp-desc">
+                        <ul>
+                            <li data-id="org-hip-li1">Mendukung pelaksanaan program Pendidikan Dasar Kewirausahaan untuk membekali anggota dengan keterampilan wirausaha yang penting.</li>
+                            <li data-id="org-hip-li2">Melakukan kajian strategis untuk mengembangkan program kerja Cakrawala Bisnis dengan menganalisis peluang dan tantangan dalam ekosistem bisnis mahasiswa.</li>
+                        </ul>
+                    </div>
+                    <div class="carousel-wrapper">
+                        <div class="carousel-container">
+                            <div class="carousel-slide"><img src="Hipmi1.JPG" alt="HIPMI" onerror="this.src='https://picsum.photos/800/550?random=51'"><span class="carousel-hint">Swipe &rarr;</span></div>
+                            <div class="carousel-slide"><img src="Hipmi2.JPG" alt="HIPMI 2" onerror="this.src='https://picsum.photos/800/550?random=55'"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">&copy; 2026 <strong>Andi Muh Khaidir R. L.</strong> &bull; <span data-id="foot-rights">Seluruh Hak Cipta Dilindungi.</span></div>
+            <div class="footer-right">Industrial Engineering &amp; Organizational Leadership &bull; UII</div>
+        </div>
+    </footer>
+
+    <script>
+        const dictionary = {
+            id: {
+                "nav-about": "Tentang", "nav-work": "Kerja", "nav-projects": "Proyek", "nav-awards": "Prestasi", "nav-skills": "Skill", "nav-cert": "Sertifikat", "nav-comm": "Pengabdian", "nav-org": "Organisasi",
+                "hero-uni": "Teknik Industri — Universitas Islam Indonesia",
+                "hero-desc": "Lulusan Teknik Industri UII dengan fokus pada pengembangan produk, analisis data, dan project management. Tugas akhir saya menggunakan Topic Modeling dan Kano Model untuk menganalisis kebutuhan konsumen kendaraan listrik di Indonesia berdasarkan perbedaan preferensi antar generasi. Saya memiliki pengalaman dalam pengelolaan proyek, analisis data, dan kolaborasi tim dalam berbagai kegiatan akademik dan organisasi.",
+                "lbl-profile": "Profil", "title-about": "Tentang Saya",
+                "about-p1": "Lulusan Teknik Industri UII dengan fokus pada pengembangan produk, analisis data, dan project management. Tugas akhir saya menggunakan Topic Modeling dan Kano Model untuk menganalisis kebutuhan konsumen kendaraan listrik di Indonesia berdasarkan perbedaan preferensi antar generasi. Saya memiliki pengalaman dalam pengelolaan proyek, analisis data, dan kolaborasi tim dalam berbagai kegiatan akademik dan organisasi.",
+                "lbl-career": "Karir", "title-work": "Pengalaman Kerja", "tag-intern": "Magang",
+                "work-title": "Magang Inventory Control",
+                "work-li1": "Membantu pencatatan data persediaan bahan baku.",
+                "work-li2": "<strong>Tugas khusus:</strong> Pemilihan supplier menggunakan metode Analytical Hierarchy Process (AHP).",
+                "lbl-innovation": "Inovasi", "title-projects": "Proyek & Riset", "tag-national": "Nasional",
+                "proj-org": "Pendanaan Riset PKM-K Kemendikbudristek — Ditjen Dikti RI",
+                "proj-li1": "<strong>Riset Pasar (Market Research):</strong> Melakukan riset pasar sebagai dasar pengembangan program kewirausahaan produk untuk kebutuhan komersialisasi dan hilirisasi produk di pasar.",
+                "proj-li2": "<strong>Analisis Ekonomi:</strong> Menyusun Rencana Anggaran Biaya (RAB) dan analisis kelayakan ekonomi sederhana untuk keberlanjutan proyek produk.",
+                "proj-li3": "<strong>Manajemen Penjadwalan:</strong> Menyusun project schedule secara terstruktur untuk perencanaan, monitoring, serta pelaksanaan timeline seluruh kegiatan proyek.",
+                "lbl-awards": "Prestasi", "title-awards": "Kompetisi & Penghargaan",
+                "comp-1": "Juara 3 — International Project Management Challenge (PMC)",
+                "comp-org-1": "Project Management Institute (PMI) Indonesia Chapter",
+                "comp-1-desc": "<p><strong>Mini Project Master Plan (MPMP)</strong></p><p style='margin-top: 0.5rem; color: var(--accent);'>• Seleksi & Semifinal:</p><p style='font-style: italic; padding-left: 0.5rem;'>CitaWater: IoT-Based River Water Quality Monitoring System with Early Warning and Website Integration for Optimizing Citarum River Supervision</p><p style='margin-top: 0.5rem; color: var(--accent);'>• Final:</p><p style='font-style: italic; padding-left: 0.5rem;'>AgriGuard: Solar-Powered IoT Pest for Local Repellent System Farmers around KBA Cidadap</p>",
+                "comp-2": "Juara 3 — Lomba Teknologi & Inovasi (LEVITASI)",
+                "comp-org-2": "Fakultas Teknologi Industri, Universitas Islam Indonesia",
+                "comp-2-desc": "Ajang kompetisi inovasi rekayasa teknologi dalam melahirkan solusi aplikatif, efektif, dan siap guna demi menjawab tantangan industri masa depan.",
+                "comp-3": "Juara Harapan 3 — Excellent PPK Ormawa Idea Competition (EPIC)",
+                "comp-org-3": "Universitas Islam Indonesia",
+                "comp-3-desc": "Kompetisi konseptualisasi dan perancangan ide pengabdian masyarakat terbaik dalam memajukan potensi desa binaan secara berkelanjutan.",
+                "tag-intl": "Internasional", "tag-univ": "Universitas", "tag-univ2": "Universitas",
+                "lbl-skills": "Kompetensi", "title-skills": "Keahlian & Tools",
+                "sk-c1": "Tools & Software",
+                "sk-li1": "<strong>Microsoft Word:</strong> Pembuatan dokumen resmi, surat, proposal, dan laporan.",
+                "sk-li2": "<strong>Microsoft Project:</strong> Penyusunan jadwal kegiatan dan visualisasi timeline (Gantt Chart).",
+                "sk-li3": "<strong>Excel:</strong> Pengolahan data, penggunaan rumus dasar, serta rekap laporan.",
+                "sk-li4": "<strong>Power BI:</strong> Pengolahan dan visualisasi data sederhana untuk kebutuhan laporan.",
+                "lbl-gallery": "Berkas Resmi", "title-cert": "Sertifikat",
+                "lbl-cont": "Kontribusi", "title-comm": "Pengabdian Masyarakat", "tag-dev": "Pengabdian",
+                "comm-b-title": "Pengabdian Masyarakat Sinera UII",
+                "comm-b-org": "Desa Kumbewaha, Kecamatan Siotapina, Kabupaten Buton, Sulawesi Tenggara",
+                "comm-b-theme": "<strong>Tema:</strong> \"Optimalisasi Produk Berbasis Kelapa untuk Pemberdayaan Ekonomi Masyarakat Kumbewaha\". Program berfokus pada peningkatan potensi ekonomi lokal melalui produk turunan kelapa.",
+                "comm-b-li1": "Sebelum pelaksanaan, berkontribusi pada Divisi Sponsorship dalam kegiatan penggalangan dana dan kolaborasi kemitraan.",
+                "comm-b-li2": "Memfasilitasi program Sekolah UMKM untuk mempromosikan usaha lokal berbasis kelapa.",
+                "comm-b-li3": "Mendukung kegiatan keagamaan dan budaya, termasuk pengajaran TPQ, Maulid Nabi, Harmoni 17 Agustus, dan Festival Adat Kadie Kumbewaha.",
+                "comm-b-li4": "<strong>Proker Individu:</strong> Memperkenalkan produksi briket dan alat cetakan sederhana kepada masyarakat lokal.",
+                "comm-b-li5": "Berpartisipasi dalam program tim lainnya seperti Pengenalan Teknologi dan Sekolah SDGs untuk siswa SMP dan SMA.",
+                "comm-u-title": "Pengajar TPA Al-Fath UII Ayo Mengajar (UAM)", "tag-teacher": "Pengajar",
+                "comm-u-li1": "Mengajar di TPA yang berlokasi di masjid sekitar lingkungan kampus Universitas Islam Indonesia (UII).",
+                "lbl-org": "Kepemimpinan", "title-org": "Organisasi & Kepemimpinan",
+                "org-t-title": "Licensee & Main Organizer",
+                "org-t-li1": "Mengelola lisensi TEDx dan berperan dalam penyelenggaraan konferensi ide independen di lingkungan universitas.",
+                "org-t-li2": "Memimpin, menyusun struktur kepanitiaan, dan mengoordinasikan operasional tim yang terdiri dari 58 staf lintas divisi.",
+                "org-p-title": "Instruktur / Pengader Regional",
+                "org-p-org": "Korps Pengader HMI Cabang Yogyakarta", "tag-inst": "Instruktur",
+                "org-p-li1": "<strong>Basic Training (LK I):</strong> Menjadi Instruktur Basic Training sebanyak 9 kali dengan rata-rata ±30 peserta per angkatan.",
+                "org-p-li2": "<strong>Intermediate Training (LK II):</strong> Menjadi Instruktur Intermediate Training sebanyak 2 kali dengan rata-rata ±30 peserta.",
+                "org-p-li3": "<strong>Konsep & Seleksi:</strong> Merumuskan konsep kegiatan serta mengelola proses seleksi calon peserta Intermediate Training.",
+                "org-p-li4": "<strong>Penyusunan ToR:</strong> Menyusun Terms of Reference (ToR) sebagai panduan substansi materi Intermediate Training.",
+                "org-h-title": "HMI Cabang Yogyakarta", "org-h-dept": "Bidang Pembinaan Aparatur Organisasi", "tag-cabang": "Branch",
+                "org-h-li1": "Melakukan Analisis kesehatan 24 komisariat lingkup HMI Cabang Yogyakarta.",
+                "org-h-quote": "\"ANALISIS DISFUNGSI SISTEM ORGANISASI MENGGUNAKAN PENDEKATAN SOFT SYSTEMS METHODOLOGY (STUDI KASUS: HMI CABANG YOGYAKARTA)\"",
+                "org-i-title": "Wakil Sekretaris Umum",
+                "org-i-org": "IKAMI Sulawesi Selatan Cabang DIY", "tag-sec": "Sekretaris",
+                "org-i-li1": "Memimpin sistem sirkulasi surat-menyurat organisasi dengan merancang, memvalidasi, dan berhasil menerbitkan <strong>lebih dari 50 surat resmi organisasi</strong>.",
+                "org-i-li2": "Melakukan koordinasi dengan tiap sekretaris Panitia Event-event organisasi.",
+                "org-f-title": "Ketua Umum Komisariat",
+                "org-f-desc": "<li>Memimpin strategi organisasi, pengembangan kader, dan koordinasi pemangku kepentingan untuk mewujudkan visi dan misi HMI di tingkat komisariat.</li><li>Mengawasi 199 anggota dan berhasil mencapai peningkatan hampir lima kali lipat dalam keanggotaan baru dibandingkan tahun sebelumnya.</li><li>Memperluas jaringan dengan Dewan Perwakilan Mahasiswa (DPM) UII serta lembaga riset untuk memperkuat pengaruh strategis.</li>",
+                "org-hip-title": "HIPMI PT UII", "org-hip-dept": "Wakil Kepala Divisi Pelatihan, Pengembangan, dan Kajian Strategis",
+                "org-hip-li1": "Mendukung pelaksanaan program Pendidikan Dasar Kewirausahaan untuk membekali anggota dengan keterampilan wirausaha yang penting.",
+                "org-hip-li2": "Melakukan kajian strategis untuk mengembangkan program kerja Cakrawala Bisnis dengan menganalisis peluang dan tantangan dalam ekosistem bisnis mahasiswa.",
+                "foot-rights": "Seluruh Hak Cipta Dilindungi."
+            },
+            en: {
+                "nav-about": "About", "nav-work": "Work", "nav-projects": "Projects", "nav-awards": "Awards", "nav-skills": "Skills", "nav-cert": "Certificates", "nav-comm": "Community", "nav-org": "Organizations",
+                "hero-uni": "Industrial Engineering — Universitas Islam Indonesia",
+                "hero-desc": "Industrial Engineering graduate from UII focusing on product development, data analysis, and project management. My final thesis utilizes Topic Modeling and the Kano Model to analyze consumer needs for electric vehicles in Indonesia based on generational preference differences. Experienced in project management, data analysis, and team collaboration across various academic and organizational activities.",
+                "lbl-profile": "Profile", "title-about": "About Me",
+                "about-p1": "Industrial Engineering graduate from UII focusing on product development, data analysis, and project management. My final thesis utilizes Topic Modeling and the Kano Model to analyze consumer needs for electric vehicles in Indonesia based on generational preference differences. Experienced in project management, data analysis, and team collaboration across various academic and organizational activities.",
+                "lbl-career": "Career", "title-work": "Work Experience", "tag-intern": "Industrial Practicum",
+                "work-title": "Inventory Control",
+                "work-li1": "Assisted in data recording of raw material inventories.",
+                "work-li2": "<strong>Special assignment:</strong> Supplier selection optimization using the Analytical Hierarchy Process (AHP) method.",
+                "lbl-innovation": "Innovation", "title-projects": "Projects & Research", "tag-national": "National",
+                "proj-org": "PKM-K Research Funding Kemendikbudristek — Ditjen Dikti RI",
+                "proj-li1": "<strong>Market Research:</strong> Conducted market research as a baseline for product entrepreneurship programs for commercialization and product downstreaming.",
+                "proj-li2": "<strong>Economic Analysis:</strong> Developed the Budget Plan (RAB) and basic economic viability analysis for long-term product project sustainability.",
+                "proj-li3": "<strong>Scheduling Management:</strong> Constructed a structured project schedule for planning, monitoring, and executing the overall timeline.",
+                "lbl-awards": "Awards", "title-awards": "Competitions & Awards",
+                "comp-1": "3rd Winner — International Project Management Challenge (PMC)",
+                "comp-org-1": "Project Management Institute (PMI) Indonesia Chapter",
+                "comp-1-desc": "<p><strong>Mini Project Master Plan (MPMP)</strong></p><p style='margin-top: 0.5rem; color: var(--accent);'>• Selection & Semifinal:</p><p style='font-style: italic; padding-left: 0.5rem;'>CitaWater: IoT-Based River Water Quality Monitoring System with Early Warning and Website Integration for Optimizing Citarum River Supervision</p><p style='margin-top: 0.5rem; color: var(--accent);'>• Final:</p><p style='font-style: italic; padding-left: 0.5rem;'>AgriGuard: Solar-Powered IoT Pest for Local Repellent System Farmers around KBA Cidadap</p>",
+                "comp-2": "3rd Winner — Technology & Innovation Competition (LEVITASI)",
+                "comp-org-2": "Faculty of Industrial Technology, Universitas Islam Indonesia",
+                "comp-2-desc": "A technological engineering innovation competition focusing on producing applicable, efficient, and ready-to-use solutions to meet future industrial challenges.",
+                "comp-3": "Runner Up 3 — Excellent PPK Ormawa Idea Competition (EPIC)",
+                "comp-org-3": "Universitas Islam Indonesia",
+                "comp-3-desc": "A competition focusing on conceptualizing and designing premium community service initiatives to empower targeted villages sustainably.",
+                "tag-intl": "International", "tag-univ": "University", "tag-univ2": "University",
+                "lbl-skills": "Competence", "title-skills": "Skills & Tools",
+                "sk-c1": "Tools & Software",
+                "sk-li1": "<strong>Microsoft Word:</strong> Creation of official documents, letters, proposals, and reports.",
+                "sk-li2": "<strong>Microsoft Project:</strong> Event scheduling development and timeline visualization (Gantt Chart).",
+                "sk-li3": "<strong>Excel:</strong> Data processing, implementation of core formulas, and report summaries.",
+                "sk-li4": "<strong>Power BI:</strong> Basic data processing and visualization for operational reporting needs.",
+                "lbl-gallery": "Official Files", "title-cert": "Certificates",
+                "lbl-cont": "Contribution", "title-comm": "Community Service", "tag-dev": "Service",
+                "comm-b-title": "Community Service Sinera UII",
+                "comm-b-org": "Kumbewaha Village, Siotapina District, Buton Regency, Southeast Sulawesi",
+                "comm-b-theme": "<strong>Theme:</strong> \"Optimization of Coconut-Based Products for Economic Empowerment of the Kumbewaha Community\". The program focuses on expanding local economic potential through coconut derivative products.",
+                "comm-b-li1": "Prior to execution, contributed to the Sponsorship Division in fundraising activities and corporate partnership collaborations.",
+                "comm-b-li2": "Facilitated the MSME School program to promote local coconut-based businesses.",
+                "comm-b-li3": "Supported religious and cultural activities, including TPQ teaching, Maulid Nabi, Independence Day harmony, and the Kadie Kumbewaha Traditional Festival.",
+                "comm-b-li4": "<strong>Individual Project:</strong> Introduced charcoal briquette production techniques and engineered simplified molds to the local community.",
+                "comm-b-li5": "Participated in other cross-functional team programs such as Technology Familiarization and SDGs School for Junior and Senior High School students.",
+                "comm-u-title": "TPA Al-Fath UII Ayo Mengajar (UAM) Teacher", "tag-teacher": "Teacher",
+                "comm-u-li1": "Taught Quranic studies at the TPA located in local mosques around the Universitas Islam Indonesia (UII) campus area.",
+                "lbl-org": "Leadership", "title-org": "Organizational Experience",
+                "org-t-title": "Licensee & Main Organizer",
+                "org-t-li1": "Manage the TEDx license and play an active role in organizing independent ideas conferences within the university.",
+                "org-t-li2": "Led, structured the organizing committee, and coordinated cross-functional activities for 58 staff members.",
+                "org-p-title": "Regional Instructor / Trainer",
+                "org-p-org": "HMI Yogyakarta Branch Trainer Corps", "tag-inst": "Instructor",
+                "org-p-li1": "<strong>Basic Training (LK I):</strong> Served as Basic Training Instructor 9 times with an average of ±30 participants per batch.",
+                "org-p-li2": "<strong>Intermediate Training (LK II):</strong> Served as Intermediate Training Instructor 2 times with an average of ±30 participants.",
+                "org-p-li3": "<strong>Concept & Selection:</strong> Formulated the training concept and managed the selection process for Intermediate Training candidates.",
+                "org-p-li4": "<strong>ToR Drafting:</strong> Developed the Terms of Reference (ToR) as the substantive guide for the Intermediate Training.",
+                "org-h-title": "HMI Yogyakarta Branch", "org-h-dept": "Organizational Apparatus Development Division", "tag-cabang": "Branch",
+                "org-h-li1": "Conducted structural health audits and analysis across 24 local chapters under HMI Yogyakarta Branch jurisdiction.",
+                "org-h-quote": "\"ORGANIZATIONAL SYSTEM DYSFUNCTION ANALYSIS USING SOFT SYSTEMS METHODOLOGY APPROACH (CASE STUDY: HMI YOGYAKARTA BRANCH)\"",
+                "org-i-title": "Vice General Secretary",
+                "org-i-org": "IKAMI South Sulawesi — Yogyakarta Branch", "tag-sec": "Secretary",
+                "org-i-li1": "Headed organizational correspondence workflows by designing, auditing, and successfully issuing <strong>over 50 official documents</strong>.",
+                "org-i-li2": "Coordinated administrative standard operating procedures directly with each Event Committee Secretary.",
+                "org-f-title": "Chapter General Chairman",
+                "org-f-desc": "<li>Led organizational strategy, cadre development, and stakeholder coordination to realize HMI’s vision and mission at the commissariat level.</li><li>Oversaw 199 members and achieved nearly a fivefold increase in new membership compared to the previous year.</li><li>Expanded networks with the Student Consultative Council of UII, research institutions, strengthening strategic influence.</li>",
+                "org-hip-title": "HIPMI PT UII", "org-hip-dept": "Vice Head of Training, Development, and Strategic Review Division",
+                "org-hip-li1": "Supported the execution of the Basic Entrepreneurship Education program to equip members with fundamental business skills.",
+                "org-hip-li2": "Conducted strategic assessments to develop the 'Cakrawala Bisnis' work program by analyzing opportunities and bottlenecks within the student business ecosystem.",
+                "foot-rights": "All Rights Reserved."
+            }
+        };
+
+        let currentLang = 'id';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'id' ? 'en' : 'id';
+            document.body.setAttribute('lang', currentLang);
+            
+            document.querySelectorAll('[data-id]').forEach(el => {
+                const id = el.getAttribute('data-id');
+                if (dictionary[currentLang][id]) {
+                    el.innerHTML = dictionary[currentLang][id];
+                }
+            });
+        }
+
+        /* JAVASCRIPT KARUSEL DRAG/SWIPE */
+        document.querySelectorAll('.carousel-container').forEach(carousel => {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            carousel.addEventListener('mousedown', (e) => {
+                isDown = true;
+                carousel.style.scrollBehavior = 'auto'; 
+                startX = e.pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+            });
+
+            carousel.addEventListener('mouseleave', () => {
+                isDown = false;
+            });
+
+            carousel.addEventListener('mouseup', () => {
+                isDown = false;
+                carousel.style.scrollBehavior = 'smooth';
+            });
+
+            carousel.addEventListener('mousemove', (e) => {
+                if(!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 1.5;
+                carousel.scrollLeft = scrollLeft - walk;
+            });
+        });
+    </script>
+</body>
+</html>
